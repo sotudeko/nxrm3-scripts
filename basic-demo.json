@@ -1,0 +1,7 @@
+{
+"host" : "bas-proxy", 
+"port" : 1001, 
+"username" : "basuser", 
+"password" : "baspwd"
+}
+

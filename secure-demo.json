@@ -1,0 +1,7 @@
+{
+"host" : "secproxy", 
+"port" : 1002, 
+"username" : "secuser", 
+"password" : "secpwd"
+}
+
