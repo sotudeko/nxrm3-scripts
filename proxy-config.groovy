@@ -6,8 +6,8 @@
 // httpProxyWithBasicAuth(String host, int port, String username, String password)
 // httpsProxyWithBasicAuth(String host, int port, String username, String password)
 
-core.httpProxyWithBasicAuth('basic-webproxy', 9901, 'repomgr1', 'letmethrough1')
-core.httpsProxyWithBasicAuth('secure-webproxy', 9902, 'repomgr2', 'letmethrough2')
+core.httpProxyWithBasicAuth('basic-http-proxy', 7771, 'buser', 'buserletmethrough1')
+core.httpsProxyWithBasicAuth('secure-https-proxy', 7772, 'suser', 'suserletmethrough2')
 
 log.info('Script core completed successfully')
 

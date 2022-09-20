@@ -8,13 +8,14 @@ set -e
 # fail if a function call is missing an argument
 set -u
 
-username=${1:-admin}
-password=${2:-admin123}
-host=${3:-http://localhost:8081}
-
 # add a script to the repository manager and run it
 name=$1
 file=$2
+
+username=${3:-admin}
+password=${4:-admin123}
+host=${5:-http://localhost:8081}
+
 
 printf "Provisioning HTTP/S proxy - starting \n\n" 
 
