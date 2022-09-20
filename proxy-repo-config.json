@@ -1,8 +1,0 @@
-
-    {
-        "repositoryName" : "test-mvn-proxy-repo-4", 
-        "remoteUrl" : "https://repo1.maven.org/maven2/", 
-        "versionPolicy" : "RELEASE", 
-        "layoutPolicy" : "STRICT",
-        "blobStoreName" : "default"
-    }
