@@ -10,5 +10,12 @@ def repodetails = new JsonSlurper().parseText(args)
 
 log.info("Create repository")
 
-repository.createMavenProxy(repodetails.reponame, repodetails.url, 'default', true, VersionPolicy.RELEASE, LayoutPolicy.PERMISSIVE)
+repository.createMavenProxy(
+  repodetails.repositoryName, 
+  repodetails.attributes.proxy.remoteUrl, 
+  'default', 
+  true, 
+  VersionPolicy.RELEASE, 
+  LayoutPolicy.PERMISSIVE
+)
 
