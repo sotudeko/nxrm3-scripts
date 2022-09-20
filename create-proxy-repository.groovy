@@ -1,6 +1,5 @@
 import org.sonatype.nexus.repository.Repository
 import org.sonatype.nexus.blobstore.api.BlobStoreManager
-//import org.sonatype.nexus.repository.storage.WritePolicy
 import org.sonatype.nexus.repository.maven.VersionPolicy
 import org.sonatype.nexus.repository.maven.LayoutPolicy
 import groovy.json.JsonSlurper
@@ -12,8 +11,8 @@ log.info("Create repository")
 
 repository.createMavenProxy(
   repodetails.repositoryName, 
-  repodetails.attributes.proxy.remoteUrl, 
-  'default', 
+  repodetails.remoteUrl, 
+  repodetails.blobStoreName, 
   true, 
   VersionPolicy.RELEASE, 
   LayoutPolicy.PERMISSIVE
