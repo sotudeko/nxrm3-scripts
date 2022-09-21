@@ -9,7 +9,7 @@ sh run-script.sh
 
 # References
 
-- https://support.sonatype.com/hc/en-us/articles/115015812727
+- [Nexus 3 Groovy Script development environment setup](https://support.sonatype.com/hc/en-us/articles/115015812727)
 
 - https://github.com/sonatype-nexus-community/nexus-scripting-examples/blob/master/complex-script/core.groovy
 
