@@ -11,11 +11,11 @@ sh run-script.sh
 
 - [Nexus 3 Groovy Script development environment setup](https://support.sonatype.com/hc/en-us/articles/115015812727)
 
-- https://github.com/sonatype-nexus-community/nexus-scripting-examples/blob/master/complex-script/core.groovy
+- [Nexus script example for HTTP/S proxy setting](https://github.com/sonatype-nexus-community/nexus-scripting-examples/blob/master/complex-script/core.groovy)
 
-- https://issues.sonatype.org/browse/NEXUS-30813
+- [REST API for http proxy settings](https://issues.sonatype.org/browse/NEXUS-30813)
 
-- https://javadoc.io/static/org.sonatype.nexus/nexus-core/3.1.0-04/org/sonatype/nexus/CoreApi.html
+- [Core interface javadoc](https://javadoc.io/static/org.sonatype.nexus/nexus-core/3.1.0-04/org/sonatype/nexus/CoreApi.html)
 
 
 
