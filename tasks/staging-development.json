@@ -3,8 +3,13 @@
     "typeId" : "repository.export", 
     "task_alert_email" : "bassotudeko@sonatype.comuser", 
     "enabled" : "true",
-    "taskProperties" : "",
+    "taskProperties" : {
+        "repositoryName" : "staging-development",
+        "targetDir": "/tmp/staging-development"
+    },
     "booleanTaskProperties" : ""
+    
+
 }
     
     

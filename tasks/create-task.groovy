@@ -32,9 +32,9 @@ taskConfiguration.setAlertEmail(parsed_args.get('task_alert_email', '') as Strin
 
 taskConfiguration.setEnabled(Boolean.valueOf(parsed_args.get('enabled', 'true') as String))
 
-// parsed_args.taskProperties.each { key, value ->
-//     taskConfiguration.setString(key, value)
-// }
+parsed_args.taskProperties.each { key, value ->
+    taskConfiguration.setString(key, value)
+}
 
 // parsed_args.booleanTaskProperties.each { key, value ->
 //     taskConfiguration.setBoolean(key, Boolean.valueOf(value))
