@@ -1,0 +1,10 @@
+{
+    "name" : "staging-development-export", 
+    "typeId" : "repository.export", 
+    "task_alert_email" : "bassotudeko@sonatype.comuser", 
+    "enabled" : "true",
+    "taskProperties" : "",
+    "booleanTaskProperties" : ""
+}
+    
+    
