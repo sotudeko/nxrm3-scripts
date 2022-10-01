@@ -1,5 +1,5 @@
 task_payload/
-config/
-*.json
+output/
+**/*.json
 
 
