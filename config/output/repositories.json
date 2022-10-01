@@ -1,0 +1,298 @@
+[
+  {
+    "name": "nuget-hosted",
+    "format": "nuget",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/nuget-hosted",
+    "attributes": {}
+  },
+  {
+    "name": "staging-development",
+    "format": "maven2",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/staging-development",
+    "attributes": {}
+  },
+  {
+    "name": "npm-proxy",
+    "format": "npm",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/npm-proxy",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://registry.npmjs.org"
+      }
+    }
+  },
+  {
+    "name": "cocoapods-proxy",
+    "format": "cocoapods",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/cocoapods-proxy",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://cdn.cocoapods.org/"
+      }
+    }
+  },
+  {
+    "name": "npm-hosted",
+    "format": "npm",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/npm-hosted",
+    "attributes": {}
+  },
+  {
+    "name": "pypi-hosted",
+    "format": "pypi",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/pypi-hosted",
+    "attributes": {}
+  },
+  {
+    "name": "experimental-proxy",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/experimental-proxy",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "http://localhost:8081/repository/maven-public/"
+      }
+    }
+  },
+  {
+    "name": "expimp1",
+    "format": "maven2",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/expimp1",
+    "attributes": {}
+  },
+  {
+    "name": "maven-internal",
+    "format": "maven2",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/maven-internal",
+    "attributes": {}
+  },
+  {
+    "name": "proxy-one",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/proxy-one",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://www.example.com/"
+      }
+    }
+  },
+  {
+    "name": "test-mvn-proxy-repo-4",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/test-mvn-proxy-repo-4",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://repo1.maven.org/maven2/"
+      }
+    }
+  },
+  {
+    "name": "nuget.org-proxy",
+    "format": "nuget",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/nuget.org-proxy",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://api.nuget.org/v3/index.json"
+      }
+    }
+  },
+  {
+    "name": "npm-group",
+    "format": "npm",
+    "type": "group",
+    "url": "http://localhost:8081/repository/npm-group",
+    "attributes": {}
+  },
+  {
+    "name": "G1",
+    "format": "maven2",
+    "type": "group",
+    "url": "http://localhost:8081/repository/G1",
+    "attributes": {}
+  },
+  {
+    "name": "expimp2",
+    "format": "maven2",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/expimp2",
+    "attributes": {}
+  },
+  {
+    "name": "my-proxy-repo-2",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/my-proxy-repo-2",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://www.proxythis-take2.com/"
+      }
+    }
+  },
+  {
+    "name": "p1-internal",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/p1-internal",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://remote.repository.com"
+      }
+    }
+  },
+  {
+    "name": "nuget-group",
+    "format": "nuget",
+    "type": "group",
+    "url": "http://localhost:8081/repository/nuget-group",
+    "attributes": {}
+  },
+  {
+    "name": "maven-central-fw",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/maven-central-fw",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://repo1.maven.org/maven2/"
+      }
+    }
+  },
+  {
+    "name": "H1",
+    "format": "maven2",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/H1",
+    "attributes": {}
+  },
+  {
+    "name": "my-proxy-repo-3",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/my-proxy-repo-3",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://www.proxythis-take2.com/"
+      }
+    }
+  },
+  {
+    "name": "test-mvn-proxy-repo-5",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/test-mvn-proxy-repo-5",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://repo1.maven.org/maven2/"
+      }
+    }
+  },
+  {
+    "name": "maven-releases",
+    "format": "maven2",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/maven-releases",
+    "attributes": {}
+  },
+  {
+    "name": "P1",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/P1",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://repo1.maven.org/maven2"
+      }
+    }
+  },
+  {
+    "name": "the-proxy-repo",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/the-proxy-repo",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "http://www.bbc.co.uk"
+      }
+    }
+  },
+  {
+    "name": "maven-snapshots",
+    "format": "maven2",
+    "type": "hosted",
+    "url": "http://localhost:8081/repository/maven-snapshots",
+    "attributes": {}
+  },
+  {
+    "name": "sa-proxy",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/sa-proxy",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "http://www.bbc.co.uk"
+      }
+    }
+  },
+  {
+    "name": "maven-central",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/maven-central",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://repo1.maven.org/maven2/"
+      }
+    }
+  },
+  {
+    "name": "proxy-blue",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/proxy-blue",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://www.example.com/"
+      }
+    }
+  },
+  {
+    "name": "maven-public",
+    "format": "maven2",
+    "type": "group",
+    "url": "http://localhost:8081/repository/maven-public",
+    "attributes": {}
+  },
+  {
+    "name": "test-mvn-proxy-repo",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/test-mvn-proxy-repo",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://repo1.maven.org/maven2/"
+      }
+    }
+  },
+  {
+    "name": "test-mvn-proxy-repo2",
+    "format": "maven2",
+    "type": "proxy",
+    "url": "http://localhost:8081/repository/test-mvn-proxy-repo2",
+    "attributes": {
+      "proxy": {
+        "remoteUrl": "https://repo1.maven.org/maven2/"
+      }
+    }
+  }
+]

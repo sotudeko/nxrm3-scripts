@@ -1,0 +1,1006 @@
+[
+  {
+    "name": "npm-group",
+    "format": "npm",
+    "url": "http://localhost:8081/repository/npm-group",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true
+    },
+    "group": {
+      "memberNames": [
+        "npm-hosted",
+        "npm-proxy"
+      ],
+      "writableMember": "npm-hosted"
+    },
+    "type": "group"
+  },
+  {
+    "name": "cocoapods-proxy",
+    "format": "cocoapods",
+    "url": "http://localhost:8081/repository/cocoapods-proxy",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://cdn.cocoapods.org/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": true,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": true
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "type": "proxy"
+  },
+  {
+    "name": "P1",
+    "url": "http://localhost:8081/repository/P1",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://repo1.maven.org/maven2",
+      "contentMaxAge": -1,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": true,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "nuget.org-proxy",
+    "url": "http://localhost:8081/repository/nuget.org-proxy",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://api.nuget.org/v3/index.json",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "nugetProxy": {
+      "queryCacheItemMaxAge": 3600,
+      "nugetVersion": "V3"
+    },
+    "format": "nuget",
+    "type": "proxy"
+  },
+  {
+    "name": "npm-hosted",
+    "format": "npm",
+    "url": "http://localhost:8081/repository/npm-hosted",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW_ONCE"
+    },
+    "cleanup": null,
+    "component": {
+      "proprietaryComponents": true
+    },
+    "type": "hosted"
+  },
+  {
+    "name": "proxy-one",
+    "url": "http://localhost:8081/repository/proxy-one",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://www.example.com/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "H1",
+    "url": "http://localhost:8081/repository/H1",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "component": {
+      "proprietaryComponents": false
+    },
+    "format": "maven2",
+    "type": "hosted"
+  },
+  {
+    "name": "npm-proxy",
+    "url": "http://localhost:8081/repository/npm-proxy",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://registry.npmjs.org",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": true,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "npm": {
+      "removeNonCataloged": false,
+      "removeQuarantined": false
+    },
+    "format": "npm",
+    "type": "proxy"
+  },
+  {
+    "name": "test-mvn-proxy-repo2",
+    "url": "http://localhost:8081/repository/test-mvn-proxy-repo2",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://repo1.maven.org/maven2/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "proxy-blue",
+    "url": "http://localhost:8081/repository/proxy-blue",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://www.example.com/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": true,
+      "connection": {
+        "retries": 9,
+        "userAgentSuffix": "user-agent-customisation",
+        "timeout": 15,
+        "enableCircularRedirects": true,
+        "enableCookies": true,
+        "useTrustStore": false
+      },
+      "authentication": {
+        "type": "username",
+        "preemptive": true,
+        "username": "admin",
+        "ntlmHost": null,
+        "ntlmDomain": null
+      }
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": "INLINE"
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "nuget-group",
+    "format": "nuget",
+    "url": "http://localhost:8081/repository/nuget-group",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true
+    },
+    "group": {
+      "memberNames": [
+        "nuget-hosted",
+        "nuget.org-proxy"
+      ]
+    },
+    "type": "group"
+  },
+  {
+    "name": "maven-snapshots",
+    "url": "http://localhost:8081/repository/maven-snapshots",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": false,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "maven": {
+      "versionPolicy": "SNAPSHOT",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "component": {
+      "proprietaryComponents": false
+    },
+    "format": "maven2",
+    "type": "hosted"
+  },
+  {
+    "name": "maven-central",
+    "url": "http://localhost:8081/repository/maven-central",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": false,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://repo1.maven.org/maven2/",
+      "contentMaxAge": -1,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": "INLINE"
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "experimental-proxy",
+    "url": "http://localhost:8081/repository/experimental-proxy",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "http://localhost:8081/repository/maven-public/",
+      "contentMaxAge": -1,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": true,
+      "connection": null,
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "maven-central-fw",
+    "url": "http://localhost:8081/repository/maven-central-fw",
+    "online": true,
+    "storage": {
+      "blobStoreName": "maven",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://repo1.maven.org/maven2/",
+      "contentMaxAge": -1,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": true,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "nuget-hosted",
+    "format": "nuget",
+    "url": "http://localhost:8081/repository/nuget-hosted",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "component": {
+      "proprietaryComponents": false
+    },
+    "type": "hosted"
+  },
+  {
+    "name": "the-proxy-repo",
+    "url": "http://localhost:8081/repository/the-proxy-repo",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "http://www.bbc.co.uk",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "test-mvn-proxy-repo",
+    "url": "http://localhost:8081/repository/test-mvn-proxy-repo",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://repo1.maven.org/maven2/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "my-proxy-repo-2",
+    "url": "http://localhost:8081/repository/my-proxy-repo-2",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://www.proxythis-take2.com/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "pypi-hosted",
+    "format": "pypi",
+    "url": "http://localhost:8081/repository/pypi-hosted",
+    "online": true,
+    "storage": {
+      "blobStoreName": "python",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW_ONCE"
+    },
+    "cleanup": null,
+    "component": {
+      "proprietaryComponents": true
+    },
+    "type": "hosted"
+  },
+  {
+    "name": "staging-development",
+    "url": "http://localhost:8081/repository/staging-development",
+    "online": true,
+    "storage": {
+      "blobStoreName": "maven",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW_ONCE"
+    },
+    "cleanup": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "component": {
+      "proprietaryComponents": false
+    },
+    "format": "maven2",
+    "type": "hosted"
+  },
+  {
+    "name": "sa-proxy",
+    "url": "http://localhost:8081/repository/sa-proxy",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "http://www.bbc.co.uk",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "maven-releases",
+    "url": "http://localhost:8081/repository/maven-releases",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": false,
+      "writePolicy": "ALLOW_ONCE"
+    },
+    "cleanup": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "component": {
+      "proprietaryComponents": false
+    },
+    "format": "maven2",
+    "type": "hosted"
+  },
+  {
+    "name": "G1",
+    "format": "maven2",
+    "url": "http://localhost:8081/repository/G1",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true
+    },
+    "group": {
+      "memberNames": [
+        "H1",
+        "P1"
+      ]
+    },
+    "type": "group"
+  },
+  {
+    "name": "p1-internal",
+    "url": "http://localhost:8081/repository/p1-internal",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": {
+      "policyNames": [
+        "string"
+      ]
+    },
+    "proxy": {
+      "remoteUrl": "https://remote.repository.com",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": true,
+      "connection": {
+        "retries": 0,
+        "userAgentSuffix": "string",
+        "timeout": 60,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": {
+        "type": "username",
+        "preemptive": false,
+        "username": "string",
+        "ntlmHost": "string",
+        "ntlmDomain": "string"
+      }
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "MIXED",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "ATTACHMENT"
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "my-proxy-repo-3",
+    "url": "http://localhost:8081/repository/my-proxy-repo-3",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://www.proxythis-take2.com/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "test-mvn-proxy-repo-4",
+    "url": "http://localhost:8081/repository/test-mvn-proxy-repo-4",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://repo1.maven.org/maven2/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "expimp1",
+    "url": "http://localhost:8081/repository/expimp1",
+    "online": true,
+    "storage": {
+      "blobStoreName": "maven",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW_ONCE"
+    },
+    "cleanup": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "component": {
+      "proprietaryComponents": false
+    },
+    "format": "maven2",
+    "type": "hosted"
+  },
+  {
+    "name": "expimp2",
+    "url": "http://localhost:8081/repository/expimp2",
+    "online": true,
+    "storage": {
+      "blobStoreName": "maven",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW_ONCE"
+    },
+    "cleanup": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": "INLINE"
+    },
+    "component": {
+      "proprietaryComponents": false
+    },
+    "format": "maven2",
+    "type": "hosted"
+  },
+  {
+    "name": "test-mvn-proxy-repo-5",
+    "url": "http://localhost:8081/repository/test-mvn-proxy-repo-5",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW"
+    },
+    "cleanup": null,
+    "proxy": {
+      "remoteUrl": "https://repo1.maven.org/maven2/",
+      "contentMaxAge": 1440,
+      "metadataMaxAge": 1440
+    },
+    "negativeCache": {
+      "enabled": true,
+      "timeToLive": 1440
+    },
+    "httpClient": {
+      "blocked": false,
+      "autoBlock": false,
+      "connection": {
+        "retries": null,
+        "userAgentSuffix": null,
+        "timeout": null,
+        "enableCircularRedirects": false,
+        "enableCookies": false,
+        "useTrustStore": false
+      },
+      "authentication": null
+    },
+    "routingRuleName": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "PERMISSIVE",
+      "contentDisposition": null
+    },
+    "format": "maven2",
+    "type": "proxy"
+  },
+  {
+    "name": "maven-public",
+    "format": "maven2",
+    "url": "http://localhost:8081/repository/maven-public",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true
+    },
+    "group": {
+      "memberNames": [
+        "maven-releases",
+        "maven-snapshots",
+        "maven-central-fw"
+      ]
+    },
+    "type": "group"
+  },
+  {
+    "name": "maven-internal",
+    "url": "http://localhost:8081/repository/maven-internal",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "ALLOW_ONCE"
+    },
+    "cleanup": null,
+    "maven": {
+      "versionPolicy": "RELEASE",
+      "layoutPolicy": "STRICT",
+      "contentDisposition": null
+    },
+    "component": {
+      "proprietaryComponents": false
+    },
+    "format": "maven2",
+    "type": "hosted"
+  }
+]

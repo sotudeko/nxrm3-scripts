@@ -1,0 +1,56 @@
+[
+  {
+    "softQuota": null,
+    "name": "default",
+    "type": "File",
+    "unavailable": false,
+    "blobCount": 17350,
+    "totalSizeInBytes": 2877509867,
+    "availableSpaceInBytes": 644526501888
+  },
+  {
+    "softQuota": null,
+    "name": "python",
+    "type": "File",
+    "unavailable": false,
+    "blobCount": 0,
+    "totalSizeInBytes": 0,
+    "availableSpaceInBytes": 644526501888
+  },
+  {
+    "softQuota": null,
+    "name": "demoblob",
+    "type": "File",
+    "unavailable": false,
+    "blobCount": 0,
+    "totalSizeInBytes": 0,
+    "availableSpaceInBytes": 644526501888
+  },
+  {
+    "softQuota": null,
+    "name": "maven",
+    "type": "File",
+    "unavailable": false,
+    "blobCount": 2555,
+    "totalSizeInBytes": 1649784879,
+    "availableSpaceInBytes": 644526501888
+  },
+  {
+    "softQuota": null,
+    "name": "demo2-promoted",
+    "type": "File",
+    "unavailable": false,
+    "blobCount": 0,
+    "totalSizeInBytes": 0,
+    "availableSpaceInBytes": 644526501888
+  },
+  {
+    "softQuota": null,
+    "name": "demo2",
+    "type": "Group",
+    "unavailable": false,
+    "blobCount": 0,
+    "totalSizeInBytes": 0,
+    "availableSpaceInBytes": 644526501888
+  }
+]

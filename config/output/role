@@ -1,0 +1,133 @@
+[
+  {
+    "id": "ateam-role",
+    "source": "default",
+    "name": "ateam-role",
+    "description": "",
+    "readOnly": false,
+    "privileges": [
+      "ateam-priv"
+    ],
+    "roles": [
+      "maven-releases-access"
+    ]
+  },
+  {
+    "id": "bteam-role",
+    "source": "default",
+    "name": "bteam-role",
+    "description": "",
+    "readOnly": false,
+    "privileges": [
+      "bteam-priv"
+    ],
+    "roles": []
+  },
+  {
+    "id": "maven-releases-access",
+    "source": "default",
+    "name": "maven-releases-access",
+    "description": "",
+    "readOnly": false,
+    "privileges": [
+      "nx-repository-view-maven2-maven-releases-*"
+    ],
+    "roles": []
+  },
+  {
+    "id": "my-role",
+    "source": "default",
+    "name": "my role",
+    "description": "",
+    "readOnly": false,
+    "privileges": [
+      "nx-bundles-all",
+      "nx-apikey-all",
+      "nx-analytics-all"
+    ],
+    "roles": []
+  },
+  {
+    "id": "my-role-id-6",
+    "source": "default",
+    "name": "my-role-id-6",
+    "description": "my-role-id-6 desc",
+    "readOnly": false,
+    "privileges": [
+      "nx-repository-admin-*-*-*",
+      "nx-component-upload",
+      "nx-blobstores-all"
+    ],
+    "roles": [
+      "nx-admin",
+      "nx-anonymous"
+    ]
+  },
+  {
+    "id": "nx-admin",
+    "source": "default",
+    "name": "nx-admin",
+    "description": "Administrator Role",
+    "readOnly": true,
+    "privileges": [
+      "nx-all"
+    ],
+    "roles": []
+  },
+  {
+    "id": "nx-anonymous",
+    "source": "default",
+    "name": "nx-anonymous",
+    "description": "Anonymous Role",
+    "readOnly": true,
+    "privileges": [
+      "nx-healthcheck-read",
+      "nx-search-read",
+      "nx-repository-view-*-*-read",
+      "nx-repository-view-*-*-browse"
+    ],
+    "roles": []
+  },
+  {
+    "id": "replication-role",
+    "source": "default",
+    "name": "Replication role",
+    "description": "Provides privileges required to administer replication connections",
+    "readOnly": true,
+    "privileges": [
+      "nx-replication-update",
+      "nx-replication-create",
+      "nx-replication-read",
+      "nx-replication-delete",
+      "nx-repository-admin-*-*-edit",
+      "nx-repository-view-*-*-*"
+    ],
+    "roles": []
+  },
+  {
+    "id": "team1",
+    "source": "default",
+    "name": "team1",
+    "description": "",
+    "readOnly": false,
+    "privileges": [
+      "nx-repository-admin-pypi-pypi-hosted-*"
+    ],
+    "roles": [
+      "nx-admin"
+    ]
+  },
+  {
+    "id": "webgoat-dev",
+    "source": "default",
+    "name": "webgoat-dev",
+    "description": "",
+    "readOnly": false,
+    "privileges": [
+      "webgoat-dev",
+      "nx-repository-admin-maven2-staging-development-*",
+      "mouser-cs"
+    ],
+    "roles": []
+  }
+]
