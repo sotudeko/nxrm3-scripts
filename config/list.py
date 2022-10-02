@@ -9,10 +9,10 @@ base_url = 'service/rest/v1'
 
 endpoints = {}
 endpoints['roles'] = 'security/roles'
-endpoints['privileges'] = 'security/privileges'
-endpoints['blobstores'] = 'blobstores'
-endpoints['repositories'] = 'repositories'
-endpoints['repositorySettings'] = 'repositorySettings'
+endpoints['privs'] = 'security/privileges'
+endpoints['blobs'] = 'blobstores'
+endpoints['repos'] = 'repositories'
+endpoints['reposettings'] = 'repositorySettings'
 
 
 output_dir = './output'

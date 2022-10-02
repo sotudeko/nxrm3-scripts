@@ -13,6 +13,11 @@ endpoints['blobstore'] = 'blobstores'
 endpoints['repository'] = 'repositories'
 endpoints['repositorySetting'] = 'repositorySettings'
 
+ootb_blobstore = 'default'
+ootb_roles = ['nx-admin', 'nx-anonymous', 'replication-role']
+ootb_priv = 'nx-'
+ootb_repositories = ['nuget-group', 'nuget.org-proxy', 'nuget-hosted', 'maven-central', 'maven-public', 'maven-releases', 'maven-snapshots']
+ootb_users = ['admin', 'anonymous']
 
 def get_args():
     global nx_server, nx_user, nx_pwd, nx_type, nx_auth, nx_session, datafile
