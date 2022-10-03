@@ -12,7 +12,7 @@ endpoints['role'] = 'security/roles'
 endpoints['priv'] = 'security/privileges'
 endpoints['blob'] = 'blobstores'
 endpoints['repo'] = 'repositorySettings'
-endpoints['reposummary'] = 'repositories'
+endpoints['repo2'] = 'repositories'
 
 
 output_dir = './output'
