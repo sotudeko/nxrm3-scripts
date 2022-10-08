@@ -6,7 +6,6 @@ import os
 
 
 base_url = 'service/rest/v1'
-blobpath_api = 'blobstores/file'
 
 endpoints = {}
 endpoints['role'] = 'security/roles'
@@ -15,16 +14,15 @@ endpoints['priv'] = 'security/privileges'
 endpoints['blob'] = 'blobstores'
 endpoints['repo'] = 'repositorySettings'
 endpoints['contentselector'] = 'security/content-selectors'
-# endpoints['repo2'] = 'repositories'
-
+blobpath_api = 'blobstores/file'
 
 output_dir = './output'
 
-if not os.path.exists (output_dir):
+
+def app_init():
+    if not os.path.exists (output_dir):
         os.mkdir(output_dir)
-
-
-def get_args():
+    
     global nx_server, nx_user, nx_pwd, nx_type
 
     parser = argparse.ArgumentParser()
@@ -32,14 +30,12 @@ def get_args():
     parser.add_argument('-s', '--server', help='', default="http://localhost:8081", required=False)
     parser.add_argument('-a', '--user', help='', default="admin", required=False)
     parser.add_argument('-p', '--passwd', default="admin123", required=False)
-    # parser.add_argument('-t', '--type', required=True)
 
     args = vars(parser.parse_args())
     
     nx_server = args["server"]
     nx_user = args["user"]
     nx_pwd = args["passwd"]
-    # nx_type = args['type']
 
     return
 
@@ -59,7 +55,6 @@ def get_data(nx_type, nx_type_api):
         res = "Error fetching data"
 
     if nx_type == 'blob':
-        print('getting blob paths')
         get_blobpaths(res)
 
     return res
@@ -90,7 +85,7 @@ def write_file(type, json_data):
 
 
 def main():
-    get_args()
+    app_init()
 
     for nx_type in endpoints:
         get_data(nx_type, endpoints[nx_type])
