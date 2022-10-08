@@ -6,13 +6,16 @@ import os
 
 
 base_url = 'service/rest/v1'
+blobpath_api = 'blobstores/file'
 
 endpoints = {}
 endpoints['role'] = 'security/roles'
+endpoints['user'] = 'security/users'
 endpoints['priv'] = 'security/privileges'
 endpoints['blob'] = 'blobstores'
 endpoints['repo'] = 'repositorySettings'
-endpoints['repo2'] = 'repositories'
+endpoints['contentselector'] = 'security/content-selectors'
+# endpoints['repo2'] = 'repositories'
 
 
 output_dir = './output'
@@ -29,24 +32,23 @@ def get_args():
     parser.add_argument('-s', '--server', help='', default="http://localhost:8081", required=False)
     parser.add_argument('-a', '--user', help='', default="admin", required=False)
     parser.add_argument('-p', '--passwd', default="admin123", required=False)
-    parser.add_argument('-t', '--type', required=True)
+    # parser.add_argument('-t', '--type', required=True)
 
     args = vars(parser.parse_args())
     
     nx_server = args["server"]
     nx_user = args["user"]
     nx_pwd = args["passwd"]
-    nx_type = args['type']
+    # nx_type = args['type']
 
     return
 
 
-def get_data(api):
-    type_api = endpoints[api]
+def get_data(nx_type, nx_type_api):
 
-    url = "{}/{}/{}" . format(nx_server, base_url, type_api)
+    url = "{}/{}/{}" . format(nx_server, base_url, nx_type_api)
 
-    print("get_data: " + url)
+    print("get data for : " + nx_type + " [" + url + "]")
 
     req = requests.get(url, auth=(nx_user, nx_pwd), verify=False)
 
@@ -56,7 +58,18 @@ def get_data(api):
     else:
         res = "Error fetching data"
 
+    if nx_type == 'blob':
+        get_blobpaths(res)
+
     return res
+
+
+def get_blobpaths(json):
+    for blob in json:
+        name = blob['name']
+        type = blob['type']
+
+
 
 
 def write_file(type, json_data):
@@ -66,16 +79,18 @@ def write_file(type, json_data):
     with open(output_file, 'w') as outfile:
         json.dump(json_data, outfile, indent=2)
     
-    print(output_file)
+    print("config saved to file: " + output_file)
+
     return
 
 
 def main():
     get_args()
 
-    data = get_data(nx_type)
-    
+    for nx_type in endpoints:
+        get_data(nx_type, endpoints[nx_type])
 
-                
+
+
 if __name__ == '__main__':
     main()
