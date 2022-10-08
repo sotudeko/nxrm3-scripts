@@ -37,7 +37,7 @@ def app_init():
 
 
 def create_object(type_api, payload):
-    object_name = payload['name']
+    # object_name = payload['name']
     url = "{}/{}/{}" . format(nx_server, constants.base_url, type_api)
     headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
     # print(type_api, payload)
@@ -59,54 +59,10 @@ def create_object(type_api, payload):
     return
   
 
-def get_endpoint(payload):
-    type_api = ""
-
-    if nx_type == "role":
-        type_api = get_role_api(payload)
-    elif nx_type == "repo":
-        type_api = get_repo_api(payload)
-    elif nx_type == "priv":
-        type_api = get_priv_api(payload)
-    elif nx_type == "blob":
-        type_api = get_blob_api(payload)
-    else:
-        type_api = constants.endpoints[nx_type]
-
-    return type_api
 
 
-def get_role_api(payload):
-    type_api = ""
-
-    role_name = payload["name"]
-
-    if not role_name.startswith("nx-") and role_name.startswith("replication"):
-        type_api = "/security/roles"
-
-    return type_api
 
 
-def get_priv_api(payload):
-    type_api = ""
-    priv_type = payload["type"]
-    priv_name = payload["name"]
-
-    if not priv_name.startswith("nx-"):
-        if priv_type == "application":
-            type_api = "security/privileges/application"
-        elif priv_type == "repository-content-selector":
-            type_api = "security/privileges/repository-content-selector"
-        elif priv_type == "repository-view":
-            type_api = "security/privileges/repository-view"
-        elif priv_type == "repository-admin":
-            type_api = "security/privileges/repository-admin"
-        elif priv_type == "wildcard":
-            type_api = "security/privileges/wildcard"
-        elif priv_type == "script":
-            type_api = "security/privileges/script"
-
-    return type_api
 
 
 def read_json_file(datafile):
@@ -156,12 +112,13 @@ def create_repositories():
         url = repo["url"]
         type = repo["type"]
 
-        if format == "maven2":
-            format = format[:-1]
-            repo_api = "repositories/" + format + "/" + type
+        if not name in constants.ootb_repositories:
+            if format == "maven2":
+                format = format[:-1]
+                repo_api = "repositories/" + format + "/" + type
 
-            print ('create repo: ' + name + " " + format + " " + repo_api)
-            create_object(repo_api, repo)
+                print ('create repository: ' + name + " " + format + " " + repo_api)
+                create_object(repo_api, repo)
 
     return
 
@@ -177,11 +134,79 @@ def get_repos_by_type(data, find_type):
     return repos
 
 
+def create_content_selectors():
+    nx_type = 'contentselector'
+    type_api = constants.endpoints[nx_type]
+
+    f = constants.output_dir + '/contentselector.json'
+    data = read_json_file(f)
+
+    for cs in data:
+        name = cs['name']
+        print ('create content selector: ' + name + " " + type_api)
+        create_object(type_api, cs)
+
+    return
+
+
+def create_privileges():
+    f = constants.output_dir + '/priv.json'
+    data = read_json_file(f)
+
+    for priv in data:
+        priv_type = priv["type"]
+        priv_name = priv["name"]
+
+        if not priv_name.startswith(constants.ootb_priv):
+            type_api = constants.privilege_endpoints[priv_type]
+            print('create privilege: ' + priv_name + " " + priv_type + " " + type_api)
+            create_object(type_api, priv)
+
+    return
+
+
+def create_roles():
+    nx_type = 'role'
+    type_api = constants.endpoints[nx_type]
+
+    f = constants.output_dir + '/role.json'
+    data = read_json_file(f)
+
+    for role in data:
+        role_name = role["name"]
+
+        if not role_name in constants.ootb_roles:
+            print('create role: ' + role_name + " " + type_api)
+            create_object(type_api, role)
+
+    return
+
+
+def create_users():
+    nx_type = 'user'
+    type_api = constants.endpoints[nx_type]
+
+    f = constants.output_dir + '/user.json'
+    data = read_json_file(f)
+
+    for user in data:
+        user_name = user["userId"]
+
+        if not user_name in constants.ootb_users:
+            print('create user: ' + user_name + " " + type_api)
+            create_object(type_api, user)
+
+    return
+
 def main():
     app_init()
 
     create_blobs()
     create_repositories()
+    create_content_selectors()
+    create_privileges()
+    create_roles()
+    create_users()
 
 
                 
