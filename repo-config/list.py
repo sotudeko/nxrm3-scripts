@@ -52,7 +52,7 @@ def get_blobpaths(json):
         name = blob['name']
         type = blob['type']
 
-        if type == 'File' and not name == 'default':
+        if type == 'File' and not name == constants.ootb_blobstore:
             blob_url = "{}/{}" . format(constants.blobpath_api, name)
             get_data("blob_" + name, blob_url)
 

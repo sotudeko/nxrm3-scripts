@@ -1,29 +1,18 @@
 # 1. blob paths must be same
 # 2. update any http paths in the repo json files
+# 3. create order is important: blob, repo, content selector, priv, role, , user
 
+from asyncore import read
 import re
 import sys
 import json
 import argparse
 import requests
 import os
+import constants
 
-base_url = 'service/rest/v1'
 
-endpoints = {}
-endpoints['role'] = 'security/roles'
-endpoints['priv'] = 'security/privileges'
-endpoints['blob'] = 'blobstores'
-endpoints['repo'] = 'repositorySettings'
-endpoints['repo2'] = 'repositories'
-
-ootb_blobstore = 'default'
-ootb_roles = ['nx-admin', 'nx-anonymous', 'replication-role']
-ootb_priv = 'nx-'
-ootb_repositories = ['nuget-group', 'nuget.org-proxy', 'nuget-hosted', 'maven-central', 'maven-public', 'maven-releases', 'maven-snapshots']
-ootb_users = ['admin', 'anonymous']
-
-def get_args():
+def app_init():
     global nx_server, nx_user, nx_pwd, nx_type, nx_run, datafile
 
     parser = argparse.ArgumentParser()
@@ -31,8 +20,8 @@ def get_args():
     parser.add_argument('-s', '--server', help='', default="http://localhost:8081", required=False)
     parser.add_argument('-a', '--user', help='', default="admin", required=False)
     parser.add_argument('-p', '--passwd', default="admin123", required=False)
-    parser.add_argument('-t', '--type', required=True)
-    parser.add_argument('-f', '--datafile', required=True)
+    parser.add_argument('-t', '--type', required=False)
+    parser.add_argument('-f', '--datafile', required=False)
     parser.add_argument('-r', '--run', action='store_true', default=True, required=False)
 
     args = vars(parser.parse_args())
@@ -41,20 +30,17 @@ def get_args():
     nx_user = args["user"]
     nx_pwd = args["passwd"]
     nx_type = args['type']
-    nx_run = args['run']
+    nx_run = False
     datafile = args['datafile']
 
     return
 
 
 def create_object(type_api, payload):
-
-    url = "{}/{}/{}" . format(nx_server, base_url, type_api)
+    object_name = payload['name']
+    url = "{}/{}/{}" . format(nx_server, constants.base_url, type_api)
     headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
-
-    object_name = payload["name"]
-
-    print ('create ' + nx_type + ': ' + object_name + " " + url)
+    # print(type_api, payload)
 
     if nx_run:
         resp = requests.post(url, 
@@ -85,7 +71,7 @@ def get_endpoint(payload):
     elif nx_type == "blob":
         type_api = get_blob_api(payload)
     else:
-        type_api = endpoints[nx_type]
+        type_api = constants.endpoints[nx_type]
 
     return type_api
 
@@ -123,40 +109,81 @@ def get_priv_api(payload):
     return type_api
 
 
-def get_repo_api(payload):
-    type_api = ""
-    
-    name = payload["name"]
-    format = payload["format"]
-    url = payload["url"]
-    type = payload["type"]
-
-    if format == "maven2":
-        format = format[:-1]
-
-    if type == "hosted":
-        type_api = "repositories/" + format + "/" + type
-
-    return type_api
+def read_json_file(datafile):
+    f = open(datafile)
+    data = json.load(f)
+    return data
 
 
-def get_blob_api(payload):
-    return ""
+def create_blobs():
+    f = constants.output_dir + '/blob.json'
+    data = read_json_file(f)
+
+    for blob in data:
+        name = blob['name']
+        type = blob['type']
+
+        if type == 'File' and not name == constants.ootb_blobstore:
+
+            blobpath_file = constants.output_dir + '/blob_' + name + '.json'
+            pathconfig = read_json_file(blobpath_file)
+            blob_path = pathconfig['path']
+
+            blob_payload = {}
+            blob_payload['softQuota'] = {}
+            blob_payload['softQuota']['type'] = 'File'
+            blob_payload['softQuota']['limt'] = 0
+            blob_payload['path'] = blob_path
+            blob_payload['name'] = name
+
+            print ('create blob: ' + name + " " + type + " " + blob_path + " " + constants.blobpath_api)
+            create_object(constants.blobpath_api, blob_payload)
+
+    return
+
+
+def create_repositories():
+    f = constants.output_dir + '/repo.json'
+    data = read_json_file(f)
+
+    hosted_repos = get_repos_by_type(data, 'hosted')
+    proxy_repos = get_repos_by_type(data, 'proxy')
+    group_repo = get_repos_by_type(data, 'group')
+
+    for repo in data:
+        name = repo["name"]
+        format = repo["format"]
+        url = repo["url"]
+        type = repo["type"]
+
+        if format == "maven2":
+            format = format[:-1]
+            repo_api = "repositories/" + format + "/" + type
+
+            print ('create repo: ' + name + " " + format + " " + repo_api)
+            create_object(repo_api, repo)
+
+    return
+
+
+def get_repos_by_type(data, find_type):
+    repos = []
+
+    for repo in data:
+        type = repo['type']
+        if type == find_type:
+            repos.append(repo)
+
+    return repos
 
 
 def main():
-    get_args()
+    app_init()
 
-    f = open(datafile)
-    data = json.load(f)
+    create_blobs()
+    create_repositories()
 
-    for payload in data:
-        type_api = get_endpoint(payload)
 
-        if not type_api == "":
-            create_object(type_api, payload)
-
-    f.close()
                 
 
 if __name__ == '__main__':
