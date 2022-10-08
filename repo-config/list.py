@@ -10,7 +10,7 @@ blobpath_api = 'blobstores/file'
 
 endpoints = {}
 endpoints['role'] = 'security/roles'
-endpoints['user'] = 'security/users'
+endpoints['user'] = 'security/users?source=default'
 endpoints['priv'] = 'security/privileges'
 endpoints['blob'] = 'blobstores'
 endpoints['repo'] = 'repositorySettings'
@@ -48,7 +48,7 @@ def get_data(nx_type, nx_type_api):
 
     url = "{}/{}/{}" . format(nx_server, base_url, nx_type_api)
 
-    print("get data for : " + nx_type + " [" + url + "]")
+    print("* get data for : " + nx_type + " [" + url + "]")
 
     req = requests.get(url, auth=(nx_user, nx_pwd), verify=False)
 
@@ -59,6 +59,7 @@ def get_data(nx_type, nx_type_api):
         res = "Error fetching data"
 
     if nx_type == 'blob':
+        print('getting blob paths')
         get_blobpaths(res)
 
     return res
@@ -69,7 +70,11 @@ def get_blobpaths(json):
         name = blob['name']
         type = blob['type']
 
+        if type == 'File' and not name == 'default':
+            blob_url = "{}/{}" . format(blobpath_api, name)
+            get_data("blob_" + name, blob_url)
 
+    return
 
 
 def write_file(type, json_data):
