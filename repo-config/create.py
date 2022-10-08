@@ -1,3 +1,6 @@
+# 1. blob paths must be same
+# 2. update any http paths in the repo json files
+
 import re
 import sys
 import json

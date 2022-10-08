@@ -3,25 +3,12 @@ import json
 import argparse
 import requests
 import os
-
-
-base_url = 'service/rest/v1'
-
-endpoints = {}
-endpoints['role'] = 'security/roles'
-endpoints['user'] = 'security/users?source=default'
-endpoints['priv'] = 'security/privileges'
-endpoints['blob'] = 'blobstores'
-endpoints['repo'] = 'repositorySettings'
-endpoints['contentselector'] = 'security/content-selectors'
-blobpath_api = 'blobstores/file'
-
-output_dir = './output'
+import constants
 
 
 def app_init():
-    if not os.path.exists (output_dir):
-        os.mkdir(output_dir)
+    if not os.path.exists (constants.output_dir):
+        os.mkdir(constants.output_dir)
     
     global nx_server, nx_user, nx_pwd, nx_type
 
@@ -42,7 +29,7 @@ def app_init():
 
 def get_data(nx_type, nx_type_api):
 
-    url = "{}/{}/{}" . format(nx_server, base_url, nx_type_api)
+    url = "{}/{}/{}" . format(nx_server, constants.base_url, nx_type_api)
 
     print("* get data for : " + nx_type + " [" + url + "]")
 
@@ -66,14 +53,14 @@ def get_blobpaths(json):
         type = blob['type']
 
         if type == 'File' and not name == 'default':
-            blob_url = "{}/{}" . format(blobpath_api, name)
+            blob_url = "{}/{}" . format(constants.blobpath_api, name)
             get_data("blob_" + name, blob_url)
 
     return
 
 
 def write_file(type, json_data):
-    output_file = "{}/{}{}".format(output_dir, type, ".json")
+    output_file = "{}/{}{}".format(constants.output_dir, type, ".json")
     json_formatted = json.dumps(json_data, indent=2)
     
     with open(output_file, 'w') as outfile:
@@ -87,8 +74,8 @@ def write_file(type, json_data):
 def main():
     app_init()
 
-    for nx_type in endpoints:
-        get_data(nx_type, endpoints[nx_type])
+    for nx_type in constants.endpoints:
+        get_data(nx_type, constants.endpoints[nx_type])
 
 
 
