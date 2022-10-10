@@ -2,8 +2,6 @@
 # 2. update any http paths in the repo json files
 # 3. create order is important: blob, repo, content selector, priv, role, , user
 
-from asyncore import read
-import re
 import sys
 import json
 import argparse
@@ -30,17 +28,16 @@ def app_init():
     nx_user = args["user"]
     nx_pwd = args["passwd"]
     nx_type = args['type']
-    nx_run = False
+    nx_run = True
     datafile = args['datafile']
 
     return
 
 
-def create_object(type_api, payload):
-    # object_name = payload['name']
+def create_object(object_name, type_api, payload):
     url = "{}/{}/{}" . format(nx_server, constants.base_url, type_api)
     headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
-    # print(type_api, payload)
+    print(payload)
 
     if nx_run:
         resp = requests.post(url, 
@@ -49,20 +46,18 @@ def create_object(type_api, payload):
                             auth=requests.auth.HTTPBasicAuth(nx_user, nx_pwd), 
                             verify=False)
 
+        print(resp.status_code)
+
         if resp.status_code == 200 or resp.status_code == 201:
             # res = resp.json()
-            print('success creating ' + nx_type + ': ' + object_name + " " + str(resp))
+            # print('success creating ' + nx_type + ': ' + object_name)
+            print('success')
         else:
-            print('error creating ' + nx_type + ': ' + object_name + " " + str(resp))
+            # print('error creating ' + nx_type + ': ' + object_name)
             # print(payload)
+            print('error' )
 
     return
-  
-
-
-
-
-
 
 
 def read_json_file(datafile):
@@ -93,7 +88,7 @@ def create_blobs():
             blob_payload['name'] = name
 
             print ('create blob: ' + name + " " + type + " " + blob_path + " " + constants.blobpath_api)
-            create_object(constants.blobpath_api, blob_payload)
+            create_object(name, constants.blobpath_api, blob_payload)
 
     return
 
@@ -106,19 +101,9 @@ def create_repositories():
     proxy_repos = get_repos_by_type(data, 'proxy')
     group_repo = get_repos_by_type(data, 'group')
 
-    for repo in data:
-        name = repo["name"]
-        format = repo["format"]
-        url = repo["url"]
-        type = repo["type"]
-
-        if not name in constants.ootb_repositories:
-            if format == "maven2":
-                format = format[:-1]
-                repo_api = "repositories/" + format + "/" + type
-
-                print ('create repository: ' + name + " " + format + " " + repo_api)
-                create_object(repo_api, repo)
+    _create_repositories(hosted_repos)
+    _create_repositories(proxy_repos)
+    _create_repositories(group_repo)
 
     return
 
@@ -134,6 +119,24 @@ def get_repos_by_type(data, find_type):
     return repos
 
 
+def _create_repositories(data):
+    for repo in data:
+        name = repo["name"]
+        format = repo["format"]
+        url = repo["url"]
+        type = repo["type"]
+
+        if not name in constants.ootb_repositories:
+            if format == "maven2":
+                format = format[:-1]
+                repo_api = "repositories/" + format + "/" + type
+
+                print ('create repository: ' + name + " " + format + " " + repo_api)
+                create_object(name, repo_api, repo)
+
+    return
+
+
 def create_content_selectors():
     nx_type = 'contentselector'
     type_api = constants.endpoints[nx_type]
@@ -144,7 +147,7 @@ def create_content_selectors():
     for cs in data:
         name = cs['name']
         print ('create content selector: ' + name + " " + type_api)
-        create_object(type_api, cs)
+        create_object(name, type_api, cs)
 
     return
 
@@ -160,7 +163,7 @@ def create_privileges():
         if not priv_name.startswith(constants.ootb_priv):
             type_api = constants.privilege_endpoints[priv_type]
             print('create privilege: ' + priv_name + " " + priv_type + " " + type_api)
-            create_object(type_api, priv)
+            create_object(priv_name, type_api, priv)
 
     return
 
@@ -177,7 +180,7 @@ def create_roles():
 
         if not role_name in constants.ootb_roles:
             print('create role: ' + role_name + " " + type_api)
-            create_object(type_api, role)
+            create_object(role_name, type_api, role)
 
     return
 
@@ -194,7 +197,7 @@ def create_users():
 
         if not user_name in constants.ootb_users:
             print('create user: ' + user_name + " " + type_api)
-            create_object(type_api, user)
+            create_object(user_name, type_api, user)
 
     return
 
@@ -202,11 +205,11 @@ def main():
     app_init()
 
     create_blobs()
-    create_repositories()
-    create_content_selectors()
-    create_privileges()
-    create_roles()
-    create_users()
+    # create_repositories()
+    # create_content_selectors()
+    # create_privileges()
+    # create_roles()
+    # create_users()
 
 
                 
