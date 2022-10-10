@@ -13,4 +13,7 @@ echo "SELECT bucket.repository_name as repository, \
  | java -Xmx4g -DextractDir=./${repositoryName}-extract -DexportPath=./${repositoryName}.json \
  -jar ./orient-console.jar ${componentDB}
 
- python3 json2csv.py ${repositoryName}.json
+python3 json2csv.py ${repositoryName}.json
+
+awk -F',' '{sum+=$7} END {print sum/1024000 "Mb"}' ${repositoryName}.json.csv
+
