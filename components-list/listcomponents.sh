@@ -20,7 +20,8 @@ rm -rf ${repositoryName}-extract
 echo "SELECT bucket.repository_name as repository, \
  name, format, size, created_by, last_downloaded, last_updated, \
  blob_created, blob_updated FROM asset \
- where bucket.repository_name = \"${repositoryName}\" "\
+ where bucket.repository_name = \"${repositoryName}\" \
+ order by last_downloaded desc "\
  | java -Xmx4g -DextractDir=./${repositoryName}-extract -DexportPath=./${repositoryName}.json \
  -jar ./orient-console.jar ${componentDB}
 
