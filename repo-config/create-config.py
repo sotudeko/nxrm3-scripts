@@ -204,12 +204,12 @@ def create_users():
 def main():
     app_init()
 
-    create_blobs()
-    # create_repositories()
-    # create_content_selectors()
-    # create_privileges()
-    # create_roles()
-    # create_users()
+    #create_blobs()
+    create_repositories()
+    create_content_selectors()
+    create_privileges()
+    create_roles()
+    create_users()
 
 
                 
